@@ -1,13 +1,13 @@
 package com.rahansazeh.apiserver.model;
 
 public class VehicleRecordEntryResponse {
-    private Long id;
+    private String id;
 
-    public VehicleRecordEntryResponse(Long id) {
+    public VehicleRecordEntryResponse(String id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 }

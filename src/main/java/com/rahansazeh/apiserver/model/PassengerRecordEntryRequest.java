@@ -1,10 +1,10 @@
 package com.rahansazeh.apiserver.model;
 
 public class PassengerRecordEntryRequest {
-    private Long id;
+    private String id;
     private String userName;
-    private Long projectId;
-    private Long projectLineId;
+    private String projectId;
+    private String projectLineId;
 
     private int year;
     private int month;
@@ -21,7 +21,7 @@ public class PassengerRecordEntryRequest {
     public PassengerRecordEntryRequest() {
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -29,11 +29,11 @@ public class PassengerRecordEntryRequest {
         return userName;
     }
 
-    public Long getProjectId() {
+    public String getProjectId() {
         return projectId;
     }
 
-    public Long getProjectLineId() {
+    public String getProjectLineId() {
         return projectLineId;
     }
 

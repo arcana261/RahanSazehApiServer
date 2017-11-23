@@ -1,25 +1,31 @@
 package com.rahansazeh.apiserver.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class Vehicle {
-    private Long id;
+    @Id
+    private String id;
+
     private int licensePlateLeft;
     private char licensePlateType;
     private int licensePlateRight;
     private int licensePlateNationalCode;
-    private Long vehicleTypeId;
 
-    public Vehicle(Long id, int licensePlateLeft, char licensePlateType,
-                          int licensePlateRight, int licensePlateNationalCode,
-                          Long vehicleTypeId) {
-        this.id = id;
+    @DBRef
+    private VehicleType vehicleType;
+
+    public Vehicle(int licensePlateLeft, char licensePlateType,
+                   int licensePlateRight, int licensePlateNationalCode) {
         this.licensePlateLeft = licensePlateLeft;
         this.licensePlateType = licensePlateType;
         this.licensePlateRight = licensePlateRight;
         this.licensePlateNationalCode = licensePlateNationalCode;
-        this.vehicleTypeId = vehicleTypeId;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -39,7 +45,11 @@ public class Vehicle {
         return licensePlateNationalCode;
     }
 
-    public Long getVehicleTypeId() {
-        return vehicleTypeId;
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 }

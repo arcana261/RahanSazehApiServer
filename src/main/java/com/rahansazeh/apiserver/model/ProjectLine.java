@@ -1,19 +1,26 @@
 package com.rahansazeh.apiserver.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class ProjectLine {
-    private Long id;
+    @Id
+    private String id;
+
     private String title;
     private String head;
     private String tail;
 
-    public ProjectLine(Long id, String title, String head, String tail) {
-        this.id = id;
+    public ProjectLine(String title, String head, String tail) {
         this.title = title;
         this.head = head;
         this.tail = tail;
     }
 
-    public Long getId() {
+    public ProjectLine() { }
+
+    public String getId() {
         return id;
     }
 

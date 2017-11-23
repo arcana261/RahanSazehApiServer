@@ -1,12 +1,12 @@
 package com.rahansazeh.apiserver.model;
 
 public class VehicleRecordEntryRequest {
-    private Long id;
+    private String id;
     private String userName;
     private boolean hasLoaded;
     private boolean hasUnLoaded;
-    private Long projectId;
-    private Long projectLineId;
+    private String projectId;
+    private String projectLineId;
 
     private int year;
     private int month;
@@ -30,7 +30,7 @@ public class VehicleRecordEntryRequest {
     public VehicleRecordEntryRequest() {
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -46,11 +46,11 @@ public class VehicleRecordEntryRequest {
         return hasUnLoaded;
     }
 
-    public Long getProjectId() {
+    public String getProjectId() {
         return projectId;
     }
 
-    public Long getProjectLineId() {
+    public String getProjectLineId() {
         return projectLineId;
     }
 

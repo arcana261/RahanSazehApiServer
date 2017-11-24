@@ -1,13 +1,35 @@
 package com.rahansazeh.apiserver.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.rahansazeh.apiserver.model.serializer.ProjectIdSerializer;
+import com.rahansazeh.apiserver.model.serializer.ProjectLineIdSerializer;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 @Document
 public class PassengerRecord {
+    @Transient
+    @JsonProperty(value = "userName", access = JsonProperty.Access.WRITE_ONLY)
+    private String request_userName;
+
+    @Transient
+    @JsonProperty(value = "projectId", access = JsonProperty.Access.WRITE_ONLY)
+    private String request_projectId;
+
+    @Transient
+    @JsonProperty(value = "projectLineId", access = JsonProperty.Access.WRITE_ONLY)
+    private String request_projectLineId;
+
     @Id
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String id;
 
     @Indexed(name = "passenger_client_id_index")
@@ -17,21 +39,47 @@ public class PassengerRecord {
     private User user;
 
     @DBRef
+    @JsonSerialize(using = ProjectIdSerializer.class)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Project project;
 
     @DBRef
+    @JsonSerialize(using = ProjectLineIdSerializer.class)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private ProjectLine projectLine;
 
+    @Min(1390)
+    @Max(1450)
     private int year;
+
+    @Min(1)
+    @Max(12)
     private int month;
+
+    @Min(1)
+    @Max(31)
     private int day;
 
+    @Min(0)
+    @Max(23)
     private int startHour;
+
+    @Min(0)
+    @Max(23)
     private int startMinute;
+
+    @Min(0)
+    @Max(23)
     private int finishHour;
+
+    @Min(0)
+    @Max(59)
     private int finishMinute;
 
+    @Min(0)
+    @Max(1000)
     private int passengerCount;
+
     private boolean hasSelectedHead;
 
     public PassengerRecord(String clientId, int year, int month, int day,
@@ -51,7 +99,6 @@ public class PassengerRecord {
     }
 
     public PassengerRecord() { }
-
 
     public String getId() {
         return id;
@@ -119,5 +166,21 @@ public class PassengerRecord {
 
     public String getClientId() {
         return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getRequest_userName() {
+        return request_userName;
+    }
+
+    public String getRequest_projectId() {
+        return request_projectId;
+    }
+
+    public String getRequest_projectLineId() {
+        return request_projectLineId;
     }
 }

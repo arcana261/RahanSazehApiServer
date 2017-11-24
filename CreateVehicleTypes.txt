@@ -1,0 +1,9 @@
+
+export PROJECT_ID="5a1756223a22fa29426dc777"
+
+curl -H "Content-Type: application/json" -X POST -d '{"title":"ون"}' http://localhost:8080/vehicleType/${PROJECT_ID}
+curl -H "Content-Type: application/json" -X POST -d '{"title":"پژو (۴۰۵-روآ-آردی)"}' http://localhost:8080/vehicleType/${PROJECT_ID}
+curl -H "Content-Type: application/json" -X POST -d '{"title":"سمند"}' http://localhost:8080/vehicleType/${PROJECT_ID}
+curl -H "Content-Type: application/json" -X POST -d '{"title":"پیکان"}' http://localhost:8080/vehicleType/${PROJECT_ID}
+curl -H "Content-Type: application/json" -X POST -d '{"title":"پراید"}' http://localhost:8080/vehicleType/${PROJECT_ID}
+curl -H "Content-Type: application/json" -X POST -d '{"title":"سایر"}' http://localhost:8080/vehicleType/${PROJECT_ID}

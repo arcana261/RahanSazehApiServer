@@ -65,7 +65,7 @@ public class PassengerRecord {
     private int startHour;
 
     @Min(0)
-    @Max(23)
+    @Max(59)
     private int startMinute;
 
     @Min(0)

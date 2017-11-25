@@ -58,7 +58,7 @@ public class DataEntryController {
             throw new NotFoundException("project line not found");
         }
 
-        PassengerRecord record = passengerRecordRepository.findByClientId(request.getId());
+        PassengerRecord record = passengerRecordRepository.findByClientId(request.getClientId());
 
         if (record == null) {
             record = passengerRecordRepository.save(new PassengerRecord(request.getClientId(),

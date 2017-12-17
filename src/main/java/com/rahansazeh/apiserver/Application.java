@@ -1,9 +1,5 @@
 package com.rahansazeh.apiserver;
 
-import com.mongodb.MongoClient;
-import com.rahansazeh.apiserver.model.*;
-import com.rahansazeh.apiserver.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

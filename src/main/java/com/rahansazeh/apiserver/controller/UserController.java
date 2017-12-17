@@ -12,28 +12,29 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserRepository repository;
 
-    @GetMapping("/user")
+    @GetMapping
     public Response<List<User>> listUsers() {
         return Response.success(repository.findAll());
     }
 
-    @DeleteMapping("/user")
+    @DeleteMapping
     public Response<BooleanResponse> deleteAllUsers() {
         repository.deleteAll();
         return Response.success(new BooleanResponse(true));
     }
 
-    @PostMapping("/user")
+    @PostMapping
     public Response<IdentifierResponse> createUser(@Valid @RequestBody User request) {
         User user = repository.save(new User(request.getNationalCode()));
         return Response.success(new IdentifierResponse(user.getId()));
     }
 
-    @GetMapping("/user/{userName}")
+    @GetMapping("/{userName}")
     public Response<User> getUser(@PathVariable String userName) throws Exception {
         User user = repository.findByNationalCode(userName);
         if (user == null) {
@@ -42,7 +43,7 @@ public class UserController {
         return Response.success(user);
     }
 
-    @DeleteMapping("/user/{userName}")
+    @DeleteMapping("/{userName}")
     public Response<BooleanResponse> removeUser(@PathVariable String userName) throws Exception {
         User user = repository.findByNationalCode(userName);
         if (user == null) {

@@ -31,5 +31,15 @@ Heroku Account 1
 Swagger
 =======
 
-Open [http://localhost:8080/v2/api-docs](http://localhost:8080/v2/api-docs)
+Open [http://localhost:3000/v2/api-docs](http://localhost:3000/v2/api-docs)
 in browser
+
+GUIDE: [Spring Swagger Guide](https://springframework.guru/spring-boot-restful-api-documentation-with-swagger-2/)
+
+
+Notes
+=====
+
+-Dspring.profiles.active=dev
+
+application-dev.properties

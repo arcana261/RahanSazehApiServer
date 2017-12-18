@@ -19,60 +19,60 @@ package com.rahansazeh.apiserver.controller;
 //    private ProjectRepository projectRepository;
 //
 //    @GetMapping("/vehicleType/{projectId}")
-//    public Response<List<VehicleType>> getVehicleTypes(@PathVariable("projectId") String projectId) {
+//    public ResponseWrapper<List<VehicleType>> getVehicleTypes(@PathVariable("projectId") String projectId) {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
-//            return Response.error(new Exception("project not found"));
+//            return ResponseWrapper.error(new Exception("project not found"));
 //        }
 //
-//        return Response.success(project.getVehicleTypes());
+//        return ResponseWrapper.success(project.getVehicleTypes());
 //    }
 //
 //    @PostMapping("/vehicleType/{projectId}")
-//    public Response<IdentifierResponse> createVehicleType(
+//    public ResponseWrapper<IdentifierResponse> createVehicleType(
 //            @PathVariable String projectId,
 //            @RequestBody @Valid VehicleType request) {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
-//            return Response.error(new Exception("project not found"));
+//            return ResponseWrapper.error(new Exception("project not found"));
 //        }
 //
 //        VehicleType vehicleType = vehicleTypeRepository.save(new VehicleType(request.getTitle()));
 //        project.addVehicleType(vehicleType);
 //        projectRepository.save(project);
 //
-//        return Response.success(new IdentifierResponse(vehicleType.getId()));
+//        return ResponseWrapper.success(new IdentifierResponse(vehicleType.getId()));
 //    }
 //
 //    @GetMapping("/vehicleType/{projectId}/{vehicleTypeId}")
-//    public Response<VehicleType> getVehicleType(
+//    public ResponseWrapper<VehicleType> getVehicleType(
 //            @PathVariable("projectId") String projectId,
 //            @PathVariable String vehicleTypeId) {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
-//            return Response.error(new Exception("project not found"));
+//            return ResponseWrapper.error(new Exception("project not found"));
 //        }
 //
 //        VehicleType vehicleType =  vehicleTypeRepository.findOne(vehicleTypeId);
 //        if (vehicleType == null) {
-//            return Response.error(new Exception("vehicletype not found"));
+//            return ResponseWrapper.error(new Exception("vehicletype not found"));
 //        }
 //
-//        return Response.success(vehicleType);
+//        return ResponseWrapper.success(vehicleType);
 //    }
 //
 //    @DeleteMapping("/vehicleType/{projectId}/{vehicleTypeId}")
-//    public Response<BooleanResponse> removeVehicleType(
+//    public ResponseWrapper<BooleanResponse> removeVehicleType(
 //            @PathVariable("projectId") String projectId,
 //            @PathVariable String vehicleTypeId) {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
-//            return Response.error(new Exception("project not found"));
+//            return ResponseWrapper.error(new Exception("project not found"));
 //        }
 //
 //        VehicleType vehicleType =  vehicleTypeRepository.findOne(vehicleTypeId);
 //        if (vehicleType == null) {
-//            return Response.error(new Exception("vehicletype not found"));
+//            return ResponseWrapper.error(new Exception("vehicletype not found"));
 //        }
 //
 //        project.removeVehicleType(vehicleType);
@@ -80,6 +80,6 @@ package com.rahansazeh.apiserver.controller;
 //
 //        vehicleTypeRepository.delete(vehicleType);
 //
-//        return Response.success(new BooleanResponse(true));
+//        return ResponseWrapper.success(new BooleanResponse(true));
 //    }
 //}

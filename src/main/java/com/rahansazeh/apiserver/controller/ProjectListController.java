@@ -19,28 +19,28 @@ package com.rahansazeh.apiserver.controller;
 //    private ProjectLineRepository lineRepository;
 //
 //    @RequestMapping("/project")
-//    public Response<List<Project>> getProjects() {
-//        return Response.success(projectRepository.findAll());
+//    public ResponseWrapper<List<Project>> getProjects() {
+//        return ResponseWrapper.success(projectRepository.findAll());
 //    }
 //
 //    @DeleteMapping("/project")
-//    public Response<BooleanResponse> deleteAllProjects() {
+//    public ResponseWrapper<BooleanResponse> deleteAllProjects() {
 //        projectRepository.deleteAll();
 //        lineRepository.deleteAll();
-//        return Response.success(new BooleanResponse(true));
+//        return ResponseWrapper.success(new BooleanResponse(true));
 //    }
 //
 //    @GetMapping("/project/{projectId}")
-//    public Response<Project> getProject(@PathVariable String projectId) throws Exception {
+//    public ResponseWrapper<Project> getProject(@PathVariable String projectId) throws Exception {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
 //            throw new NotFoundException("project not found");
 //        }
-//        return Response.success(project);
+//        return ResponseWrapper.success(project);
 //    }
 //
 //    @DeleteMapping("/project/{projectId}")
-//    public Response<BooleanResponse> deleteProject(@PathVariable String projectId) throws Exception {
+//    public ResponseWrapper<BooleanResponse> deleteProject(@PathVariable String projectId) throws Exception {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
 //            throw new NotFoundException("project not found");
@@ -49,27 +49,27 @@ package com.rahansazeh.apiserver.controller;
 //        projectRepository.delete(projectId);
 //        lineRepository.delete(project.getLines());
 //
-//        return Response.success(new BooleanResponse(true));
+//        return ResponseWrapper.success(new BooleanResponse(true));
 //    }
 //
 //    @PostMapping("/project")
-//    public Response<IdentifierResponse> createProject(@Valid @RequestBody Project request) {
+//    public ResponseWrapper<IdentifierResponse> createProject(@Valid @RequestBody Project request) {
 //        Project project = projectRepository.save(new Project(request.getTitle()));
-//        return Response.success(new IdentifierResponse(project.getId()));
+//        return ResponseWrapper.success(new IdentifierResponse(project.getId()));
 //    }
 //
 //    @GetMapping("/project/{projectId}/line")
-//    public Response<List<ProjectLine>> getProjectLines(@PathVariable String projectId) throws Exception {
+//    public ResponseWrapper<List<ProjectLine>> getProjectLines(@PathVariable String projectId) throws Exception {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
 //            throw new NotFoundException("project not found");
 //        }
 //
-//        return Response.success(project.getLines());
+//        return ResponseWrapper.success(project.getLines());
 //    }
 //
 //    @PostMapping("/project/{projectId}/line")
-//    public Response<IdentifierResponse> addProjectLine(@PathVariable String projectId,
+//    public ResponseWrapper<IdentifierResponse> addProjectLine(@PathVariable String projectId,
 //                                                       @Valid @RequestBody ProjectLine request) throws Exception {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
@@ -82,11 +82,11 @@ package com.rahansazeh.apiserver.controller;
 //        project.addLine(line);
 //        projectRepository.save(project);
 //
-//        return Response.success(new IdentifierResponse(line.getId()));
+//        return ResponseWrapper.success(new IdentifierResponse(line.getId()));
 //    }
 //
 //    @DeleteMapping("/project/{projectId}/line")
-//    public Response<BooleanResponse> deleteAllProjectLines(@PathVariable String projectId) throws Exception {
+//    public ResponseWrapper<BooleanResponse> deleteAllProjectLines(@PathVariable String projectId) throws Exception {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
 //            throw new NotFoundException("project not found");
@@ -98,11 +98,11 @@ package com.rahansazeh.apiserver.controller;
 //        projectRepository.save(project);
 //        lineRepository.delete(Arrays.asList(lines));
 //
-//        return Response.success(new BooleanResponse(true));
+//        return ResponseWrapper.success(new BooleanResponse(true));
 //    }
 //
 //    @GetMapping("/project/{projectId}/line/{lineId}")
-//    public Response<ProjectLine> getProjectLine(@PathVariable String projectId, @PathVariable String lineId) throws Exception {
+//    public ResponseWrapper<ProjectLine> getProjectLine(@PathVariable String projectId, @PathVariable String lineId) throws Exception {
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
 //            throw new NotFoundException("project not found");
@@ -113,14 +113,14 @@ package com.rahansazeh.apiserver.controller;
 //                .findFirst().orElse(null);
 //
 //        if (line == null) {
-//            return Response.error(new Exception("line not found"));
+//            return ResponseWrapper.error(new Exception("line not found"));
 //        }
 //
-//        return Response.success(line);
+//        return ResponseWrapper.success(line);
 //    }
 //
 //    @DeleteMapping("/project/{projectId}/line/{lineId}")
-//    public Response<BooleanResponse> deleteProjectLine(@PathVariable String projectId, @PathVariable String lineId) throws Exception{
+//    public ResponseWrapper<BooleanResponse> deleteProjectLine(@PathVariable String projectId, @PathVariable String lineId) throws Exception{
 //        Project project = projectRepository.findOne(projectId);
 //        if (project == null) {
 //            throw new NotFoundException("project not found");
@@ -131,7 +131,7 @@ package com.rahansazeh.apiserver.controller;
 //                .findFirst().orElse(null);
 //
 //        if (line == null) {
-//            return Response.error(new Exception("line not found"));
+//            return ResponseWrapper.error(new Exception("line not found"));
 //        }
 //
 //        project.removeLine(line);
@@ -139,6 +139,6 @@ package com.rahansazeh.apiserver.controller;
 //
 //        lineRepository.delete(line);
 //
-//        return Response.success(new BooleanResponse(true));
+//        return ResponseWrapper.success(new BooleanResponse(true));
 //    }
 //}

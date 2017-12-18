@@ -13,9 +13,9 @@ package com.rahansazeh.apiserver.controller;
 //    private UserRepository repository;
 //
 //    @RequestMapping(path = "/login", method = RequestMethod.POST)
-//    public Response<LoginResponse> login(@RequestBody LoginRequest request) {
+//    public ResponseWrapper<LoginResponse> login(@RequestBody LoginRequest request) {
 //        User user = repository.findByNationalCode(request.getUserName());
 //
-//        return Response.success(new LoginResponse(user != null));
+//        return ResponseWrapper.success(new LoginResponse(user != null));
 //    }
 //}

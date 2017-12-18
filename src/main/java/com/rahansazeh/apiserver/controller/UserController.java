@@ -18,38 +18,38 @@ package com.rahansazeh.apiserver.controller;
 //    private UserRepository repository;
 //
 //    @GetMapping
-//    public Response<List<User>> listUsers() {
-//        return Response.success(repository.findAll());
+//    public ResponseWrapper<List<User>> listUsers() {
+//        return ResponseWrapper.success(repository.findAll());
 //    }
 //
 //    @DeleteMapping
-//    public Response<BooleanResponse> deleteAllUsers() {
+//    public ResponseWrapper<BooleanResponse> deleteAllUsers() {
 //        repository.deleteAll();
-//        return Response.success(new BooleanResponse(true));
+//        return ResponseWrapper.success(new BooleanResponse(true));
 //    }
 //
 //    @PostMapping
-//    public Response<IdentifierResponse> createUser(@Valid @RequestBody User request) {
+//    public ResponseWrapper<IdentifierResponse> createUser(@Valid @RequestBody User request) {
 //        User user = repository.save(new User(request.getNationalCode()));
-//        return Response.success(new IdentifierResponse(user.getId()));
+//        return ResponseWrapper.success(new IdentifierResponse(user.getId()));
 //    }
 //
 //    @GetMapping("/{userName}")
-//    public Response<User> getUser(@PathVariable String userName) throws Exception {
+//    public ResponseWrapper<User> getUser(@PathVariable String userName) throws Exception {
 //        User user = repository.findByNationalCode(userName);
 //        if (user == null) {
 //            throw new NotFoundException("failed to locate user");
 //        }
-//        return Response.success(user);
+//        return ResponseWrapper.success(user);
 //    }
 //
 //    @DeleteMapping("/{userName}")
-//    public Response<BooleanResponse> removeUser(@PathVariable String userName) throws Exception {
+//    public ResponseWrapper<BooleanResponse> removeUser(@PathVariable String userName) throws Exception {
 //        User user = repository.findByNationalCode(userName);
 //        if (user == null) {
 //            throw new NotFoundException("failed to locate user");
 //        }
 //        repository.delete(user);
-//        return Response.success(new BooleanResponse(true));
+//        return ResponseWrapper.success(new BooleanResponse(true));
 //    }
 //}

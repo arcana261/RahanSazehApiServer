@@ -41,7 +41,7 @@ package com.rahansazeh.apiserver.controller;
 //    private VehicleChangeRepository changeRepository;
 //
 //    @RequestMapping(path = "/dataentry/passenger", method = RequestMethod.POST)
-//    public Response<IdentifierResponse> recordPassenger(@Valid @RequestBody PassengerRecord request) throws Exception {
+//    public ResponseWrapper<IdentifierResponse> recordPassenger(@Valid @RequestBody PassengerRecord request) throws Exception {
 //        User user = userRepository.findByNationalCode(request.getRequest_userName());
 //        Project project = projectRepository.findOne(request.getRequest_projectId());
 //        ProjectLine projectLine = projectLineRepository.findOne(request.getRequest_projectLineId());
@@ -73,11 +73,11 @@ package com.rahansazeh.apiserver.controller;
 //            passengerRecordRepository.save(record);
 //        }
 //
-//        return Response.success(new IdentifierResponse(record.getId()));
+//        return ResponseWrapper.success(new IdentifierResponse(record.getId()));
 //    }
 //
 //    @RequestMapping(path = "/dataentry/vehicle", method = RequestMethod.POST)
-//    public Response<IdentifierResponse> recordVehicle(@Valid @RequestBody VehicleRecord request) throws Exception {
+//    public ResponseWrapper<IdentifierResponse> recordVehicle(@Valid @RequestBody VehicleRecord request) throws Exception {
 //        User user = userRepository.findByNationalCode(request.getRequest_userName());
 //        Project project = projectRepository.findOne(request.getRequest_projectId());
 //        ProjectLine projectLine = projectLineRepository.findOne(request.getRequest_projectLineId());
@@ -144,6 +144,6 @@ package com.rahansazeh.apiserver.controller;
 //            vehicleRecordRepository.save(record);
 //        }
 //
-//        return Response.success(new IdentifierResponse(record.getId()));
+//        return ResponseWrapper.success(new IdentifierResponse(record.getId()));
 //    }
 //}

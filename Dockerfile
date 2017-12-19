@@ -16,7 +16,7 @@ RUN \
 WORKDIR /RahanSazehApiServer
 
 # Run the image as a non-root user
-RUN adduser -D arcana
+RUN useradd -M -s /bin/false arcana
 USER arcana
 
 # heroku does not support ENTRYPOINT

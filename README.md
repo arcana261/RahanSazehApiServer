@@ -27,6 +27,10 @@ Heroku Account 1
 * App Name: rahansazeh-1
 * Region: Europe
 
+heroku login
+heroku container:login
+heroku container:push -a rahansazeh-1 web
+
 
 Swagger
 =======
@@ -41,5 +45,7 @@ Notes
 =====
 
 -Dspring.profiles.active=dev
+
+docker build -t rahansazeh-api .
 
 application-dev.properties

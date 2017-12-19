@@ -30,6 +30,7 @@ Heroku Account 1
 heroku login
 heroku container:login
 heroku container:push -a rahansazeh-1 web
+heroku ps:scale -a rahansazeh-1 web=1
 
 
 Swagger

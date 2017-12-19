@@ -8,15 +8,19 @@ RUN \
 
 RUN \
     cd /RahanSazehApiServer && \
-    ./gradlew bootRepackage
+    ./gradlew build
 
 # heroku does not support EXPOSE
 # EXPOSE 3000
 
 WORKDIR /RahanSazehApiServer
 
+# Run the image as a non-root user
+RUN adduser -D arcana
+USER arcana
+
 # heroku does not support ENTRYPOINT
 #ENTRYPOINT ["/RahanSazehApiServer/gradlew", "bootRun"]
 
-CMD /RahanSazehApiServer/gradlew bootRun
+CMD java -jar /RahanSazehApiServer/build/libs/RahanSazeh-ApiServer-0.1.0.jar
 

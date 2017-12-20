@@ -33,7 +33,7 @@ heroku container:push -a rahansazeh-1 web
 heroku config:set -a rahansazeh-1 JAVA_TOOL_OPTIONS="-Xmx300m"
 heroku config:set -a rahansazeh-1 DB_PASSWORD=<PASSWORD>
 heroku ps:scale -a rahansazeh-1 web=1
-heroku logs -a rahansazeh-1 -n 100
+heroku logs -a rahansazeh-1 -n 100 -t
 
 Swagger
 =======

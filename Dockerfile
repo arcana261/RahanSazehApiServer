@@ -1,14 +1,20 @@
 FROM openjdk:8u151-jdk
 
-ADD . /RahanSazehApiServer
-
 RUN \
+    cd / && \
+    git clone https://github.com/arcana261/RahanSazehApiServer.git && \
     cd /RahanSazehApiServer && \
-    rm -f gradle.properties
+    git checkout -b new-version origin/new-version && \
+    rm -f gradle.properties && \
+    ./gradlew build && \
+    mv /RahanSazehApiServer/build/libs/RahanSazeh-ApiServer-0.1.0.jar /RahanSazeh-ApiServer.jar && \
+    cd / && \
+    rm -rfv /RahanSazehApiServer && \
+    rm -rfv /root/.gradle
+    mkdir -p /RahanSazehApiServer && \
+    mv /RahanSazeh-ApiServer.jar /RahanSazehApiServer/ && \
+    chmod -R 644 /RahanSazehApiServer
 
-RUN \
-    cd /RahanSazehApiServer && \
-    ./gradlew build
 
 # heroku does not support EXPOSE
 # EXPOSE 3000
@@ -22,5 +28,5 @@ USER arcana
 # heroku does not support ENTRYPOINT
 #ENTRYPOINT ["/RahanSazehApiServer/gradlew", "bootRun"]
 
-CMD java -jar /RahanSazehApiServer/build/libs/RahanSazeh-ApiServer-0.1.0.jar
+CMD java -jar /RahanSazehApiServer/RahanSazeh-ApiServer-0.1.0.jar
 

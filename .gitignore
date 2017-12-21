@@ -2,4 +2,6 @@
 /build
 /.gradle
 /.idea
+/ssl
+/ssl.tar.xz
 

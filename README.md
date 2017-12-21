@@ -1,3 +1,10 @@
+DNS
+===
+
+* Provider: cloudns.net
+* Email: m_kh
+
+
 MLAB
 ====
 
@@ -63,6 +70,16 @@ Access Application via https://rahansazeh-2.herokuapp.com/
 Nginx
 =====
 
+** Extract SSL certificates **
+** have used "sslforfree" to generate them **
+
+```bash
+7za e ssl.7z
+tar xvJf ssl.tar.xz
+mkdir -p /etc/nginx/ssl/heroku.api.rahansazeh.ucoder.ir
+cp -rfv ssl/heroku.api/* /etc/nginx/ssl/heroku.api.rahansazeh.ucoder.ir/
+```
+
 **heroku reverse proxy**
 
 * serving srv1.heroku.api.rahansazeh.ucoder.ir
@@ -80,6 +97,12 @@ Cron Tabs
 
 ```bash
 0 0 * * 0  /root/RahanSazehApiServer/cron/swap-upstream.sh
+```
+
+** Heartbeat to keep server running in free heroku server **
+
+```bash
+*/15 0 * * * /root/RahanSazehApiServer/cron/heartbeat.sh
 ```
 
 Swagger

@@ -4,4 +4,5 @@
 /.idea
 /ssl
 /ssl.tar.xz
+/cron/credentials.source
 

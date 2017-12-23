@@ -42,10 +42,14 @@ server {
   listen 443 ssl;
   server_name heroku.api.rahansazeh.ucoder.ir;
 
+  client_body_timeout 5s;
+  client_header_timeout 5s;
   ssl_certificate     /etc/nginx/ssl/heroku.api.rahansazeh.ucoder.ir/certificate.crt;
   ssl_certificate_key /etc/nginx/ssl/heroku.api.rahansazeh.ucoder.ir/private.key;
+  ssl_dhparam         /etc/nginx/ssl/heroku.api.rahansazeh.ucoder.ir/dhparam.pem;
   ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-  ssl_ciphers         HIGH:!aNULL:!MD5;
+  ssl_ciphers 'EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH';
+  ssl_prefer_server_ciphers on;
 
   access_log /var/log/nginx/access_heroku_api_rahansazeh.log;
   error_log  /var/log/nginx/error_heroku_api_rahansazeh.log;
